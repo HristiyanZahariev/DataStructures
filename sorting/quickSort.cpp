@@ -1,7 +1,7 @@
 #include <iostream>
 
-int partition (int arr[], int low, int high) {
-    int pivot = arr[low];
+int partition(int arr[], int low, int high) {
+    int pivot = arr[low]; // Choosing the first element isn't the best practice for nearly sorted arrays but we don't expect any of these.
     int i = (high + 1);
   
     for (int j = high; j >= low + 1; j--) {
