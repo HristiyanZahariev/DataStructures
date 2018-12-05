@@ -3,8 +3,10 @@
 
 void max_heapify(int arr[], size_t n, int i) { 
     int largest = i;
-    int left = 2*i; 
-    int right = 2*i + 1;
+    int left = 2*i + 1; 
+    int right = left + 1;
+
+    // used the algorithm to determine the left and right child of a node: https://medium.com/basecs/learning-to-love-heaps-cef2b273a238
 
     if (left < n && arr[left] > arr[largest]) 
         largest = left; 
