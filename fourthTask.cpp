@@ -86,8 +86,13 @@ void solve(std::stack<std::string>& container, std::string& start) {
 }
 
 int main() {
+	int frogsNumber;
+
+	cout << "Enter number of frogs facing the same direction" << endl;
+	cin >> frogsNumber;
+
 	stack<string> steck;
-	string start = createStart(2);
+	string start = createStart(frogsNumber);
 	cout << start << endl;
 	solve(steck, start);
 }
