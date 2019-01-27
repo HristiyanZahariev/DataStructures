@@ -5,7 +5,7 @@
 
 using namespace std;
 
-string getFinalMove(size_t n) {
+string finalMove(size_t n) {
 	std::string finalMove;
 	finalMove.resize(2 * n + 1);
 
@@ -23,7 +23,7 @@ string getFinalMove(size_t n) {
 	return finalMove;
 }
 
-string createStart(size_t n) {
+string start(size_t n) {
 	string data;
 	data.resize(2 * n + 1);
 	for (unsigned int i = 0; i < 2 * n + 1; i++) {
@@ -69,7 +69,7 @@ void makeMoves(stack<string>& container, string& currentPlace) {
 
 
 void solve(std::stack<std::string>& container, std::string& start) {
-	if (start == getFinalMove(start.size() / 2)) {
+	if (start == finalMove(start.size() / 2)) {
 		container = stack<string>();
 		return;
 	}
@@ -91,9 +91,14 @@ int main() {
 	cout << "Enter number of frogs facing the same direction" << endl;
 	cin >> frogsNumber;
 
+	if (!cin) {
+    	cout << "Please enter an integer" << endl;
+    	cin >> frogsNumber;
+	}
+
 	stack<string> steck;
-	string start = createStart(frogsNumber);
-	cout << start << endl;
-	solve(steck, start);
+	string startPos = start(frogsNumber);
+	cout << startPos << endl;
+	solve(steck, startPos);
 }
 
