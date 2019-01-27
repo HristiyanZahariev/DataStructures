@@ -25,6 +25,7 @@ bool isIsomorphic(TreeNode* first_root, TreeNode* second_root) {
 	} else if (first_root->children.size() != second_root->children.size()) {
 		return false;
 	}
+	
 	bool isomorphicFirst = true;
 	bool isomorphicSecond = false;
 	vector<int> coupledSubTrees;

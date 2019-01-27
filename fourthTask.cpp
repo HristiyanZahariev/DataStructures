@@ -5,43 +5,45 @@
 
 using namespace std;
 
+const char separator = '_';
+
 string finalMove(size_t n) {
-	std::string finalMove;
-	finalMove.resize(2 * n + 1);
+	std::string finalPosition;
+	finalPosition.resize(2 * n + 1);
 
 	for (unsigned int i = 0; i < 2 * n + 1; i++) {
 		if (i < n) {
-			finalMove[i] = '<';
+			finalPosition[i] = '<';
 		}
 		else if (i == n) {
-			finalMove[i] = '_';
+			finalPosition[i] = separator;
 		}
 		else {
-			finalMove[i] = '>';
+			finalPosition[i] = '>';
 		}
 	}
-	return finalMove;
+	return finalPosition;
 }
 
 string start(size_t n) {
-	string data;
-	data.resize(2 * n + 1);
+	string startPosition;
+	startPosition.resize(2 * n + 1);
 	for (unsigned int i = 0; i < 2 * n + 1; i++) {
 		if (i < n) {
-			data[i] = '>';
+			startPosition[i] = '>';
 		}
 		else if (i == n) {
-			data[i] = '_';
+			startPosition[i] = separator;
 		}
 		else {
-			data[i] = '<';
+			startPosition[i] = '<';
 		}
 	}
-	return data;
+	return startPosition;
 }
 
 void makeMoves(stack<string>& container, string& currentPlace) {
-	size_t index = currentPlace.find('_');
+	size_t index = currentPlace.find(separator);
 	string copy = currentPlace;
 
 	if (((index + 1) <= (currentPlace.size() - 1)) && (copy[index + 1] == '<')) {
@@ -73,7 +75,6 @@ void solve(std::stack<std::string>& container, std::string& start) {
 		container = stack<string>();
 		return;
 	}
-
 
 	makeMoves(container, start);
 
